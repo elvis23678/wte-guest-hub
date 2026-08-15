@@ -56,3 +56,10 @@ Appena disponibile PNG/SVG originale, sostituiremo il wordmark provvisorio senza
 V0.2.2
 - Inserito il logo originale Wedding Tattoo Experience fornito dal titolare.
 - Il logo è usato come immagine, senza ricostruzione grafica o alterazioni.
+
+
+VERSIONE v0.2.3
+- Rifinitura esclusiva HERO mobile
+- Logo originale più presente e fuso nello sfondo
+- Spazi verticali compattati
+- Nessuna modifica a form, coupon o funzioni
