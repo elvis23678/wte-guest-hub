@@ -352,3 +352,16 @@ body.lightbox-open{overflow:hidden}
   #project .choice-grid{grid-template-columns:1fr 1fr}
   #project .choice:last-child{grid-column:1/-1}
 }
+
+/* v0.3.0 Wedding Gift */
+#gift .lead strong{color:#e0bd68;font-weight:400}
+#gift .gift-highlight{margin:24px 0;padding:25px 18px;text-align:center;border:1px solid rgba(202,157,70,.55);background:#050505}
+#gift .gift-highlight span,#gift .gift-highlight small{display:block;color:#c99b45;font-size:9px;letter-spacing:.22em}
+#gift .gift-highlight strong{display:block;margin:7px 0 5px;color:#e1bd68;font-family:Georgia,serif;font-size:68px;line-height:1;font-weight:400}
+#gift .gift-instruction{color:#c5bdb1;font-family:Georgia,serif;font-size:15px;line-height:1.55;margin-bottom:22px}
+#gift .coupon-studio{margin:20px auto 0;padding:14px 8px;max-width:330px;border-top:1px solid rgba(182,144,67,.28);border-bottom:1px solid rgba(182,144,67,.28);color:#bdb5a8;font-size:8px;line-height:1.7;letter-spacing:.11em}
+#gift .coupon-studio strong{color:#e0bd68}
+#gift #saveCoupon{margin-top:14px}
+#gift .gift-conditions{margin-top:24px;padding-top:18px;border-top:1px solid rgba(182,144,67,.28)}
+#gift .gift-conditions span{color:#c99b45;font-size:8px;letter-spacing:.24em}
+#gift .gift-conditions p{color:#817b72;font-size:10px;line-height:1.55}

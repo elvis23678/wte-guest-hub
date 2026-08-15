@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
   setText("#eventDate", event.dateDisplay);
   setText("#couponEvent", event.couple ? event.couple.toUpperCase() : "");
   setText("#couponDate", event.dateCoupon);
-  setText("#couponDiscount", coupon.discount ? "–" + coupon.discount : "");
-  setText("#couponExpiry", coupon.expiryDisplay ? "VALIDO FINO AL " + coupon.expiryDisplay.toUpperCase() : "");
+  setText("#couponDiscount", "–20%");
+  setText("#couponExpiry", "VALIDO FINO AL 5 MARZO 2027");
 
   const heroCta = q(".hero .cta.gold");
   if (heroCta) heroCta.textContent = "ENTRA NELL’ESPERIENZA";
@@ -123,15 +123,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const saveCoupon = q("#saveCoupon");
   if (saveCoupon) {
-    saveCoupon.addEventListener("click", async function () {
-      const code = q("#couponCode")?.textContent || "";
-      const shareText = `Wedding Gift ${event.couple || ""} — ${coupon.discount || ""} sul prossimo tattoo con ${artist.name || "Elvis B Tattoo"}. ${code}`;
-      if (navigator.share) {
-        try { await navigator.share({ title: "Wedding Gift", text: shareText }); } catch (_) {}
-      } else if (navigator.clipboard) {
-        await navigator.clipboard.writeText(shareText);
-        alert("Dati coupon copiati.");
-      }
+    saveCoupon.addEventListener("click", function () {
+      const guest = q("#couponName")?.textContent || "INVITATO";
+      const code = (q("#couponCode")?.textContent || "").replace("CODICE: ", "");
+      const clean = (v) => v.replace(/[<>&"]/g, "");
+      const g = clean(guest), c = clean(code);
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350">
+      <rect width="1080" height="1350" fill="#050505"/><rect x="38" y="38" width="1004" height="1274" fill="none" stroke="#b69043" stroke-width="3"/>
+      <text x="540" y="160" text-anchor="middle" fill="#e2c275" font-family="Georgia" font-size="58">WEDDING</text>
+      <text x="540" y="215" text-anchor="middle" fill="#e2c275" font-family="Arial" font-size="22">TATTOO EXPERIENCE</text>
+      <text x="540" y="330" text-anchor="middle" fill="#999" font-family="Arial" font-size="20">UN REGALO DI</text>
+      <text x="540" y="395" text-anchor="middle" fill="#f4efe5" font-family="Georgia" font-size="54">UMBERTO &amp; SOFIA</text>
+      <text x="540" y="445" text-anchor="middle" fill="#d6aa4d" font-family="Arial" font-size="20">5 SETTEMBRE 2026</text>
+      <text x="540" y="535" text-anchor="middle" fill="#999" font-family="Arial" font-size="19">RISERVATO A</text>
+      <text x="540" y="595" text-anchor="middle" fill="#f4efe5" font-family="Georgia" font-size="46">${g}</text>
+      <text x="540" y="790" text-anchor="middle" fill="#e2c275" font-family="Georgia" font-size="190">–20%</text>
+      <text x="540" y="855" text-anchor="middle" fill="#f4efe5" font-family="Arial" font-size="27">SUL TUO PROSSIMO TATTOO</text>
+      <text x="540" y="905" text-anchor="middle" fill="#e2c275" font-family="Arial" font-size="25">CON ELVIS B TATTOO</text>
+      <text x="540" y="995" text-anchor="middle" fill="#e2c275" font-family="monospace" font-size="27">CODICE: ${c}</text>
+      <text x="540" y="1045" text-anchor="middle" fill="#999" font-family="Arial" font-size="18">VALIDO FINO AL 5 MARZO 2027</text>
+      <text x="540" y="1130" text-anchor="middle" fill="#bdb5a8" font-family="Arial" font-size="18">PRESENTA QUESTO WEDDING GIFT PRESSO</text>
+      <text x="540" y="1175" text-anchor="middle" fill="#e2c275" font-family="Arial" font-size="21">TATTOO BEAUTY SALOON · CONDOVE (TO)</text>
+      <text x="540" y="1260" text-anchor="middle" fill="#b69043" font-family="Arial" font-size="18">LOVE. MARKED. FOREVER.</text></svg>`;
+      const blob = new Blob([svg], {type:"image/svg+xml;charset=utf-8"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href=url; a.download="Wedding-Gift-"+g.replace(/\s+/g,"-")+".svg";
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),1000);
     });
   }
 
