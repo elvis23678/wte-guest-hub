@@ -314,3 +314,16 @@ body.lightbox-open{overflow:hidden}
  .portfolio-gallery{gap:6px}
  .portfolio-shot:nth-child(5n+1){min-height:360px}
 }
+
+/* v0.2.8 — portfolio 21 foto + lightbox swipe/navigation */
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:58px;border:0;background:rgba(0,0,0,.34);color:#e2c275;font:400 46px/1 Georgia,serif;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.lightbox-prev{left:4px}.lightbox-next{right:4px}
+.lightbox-count{position:absolute;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);color:#c9b27b;font-size:11px;letter-spacing:.14em;background:rgba(0,0,0,.45);padding:5px 8px;border-radius:12px}
+@media(max-width:430px){
+ #portfolio{padding-left:10px;padding-right:10px}
+ #portfolio .panel-head,#portfolio .lead,#portfolio>.cta{margin-left:8px;margin-right:8px}
+ .portfolio-gallery{gap:5px;margin-top:18px}
+ .portfolio-shot:nth-child(5n+1){min-height:350px}
+ .lightbox{padding:56px 8px 42px}
+ .lightbox-nav{width:38px;height:54px;font-size:40px}
+}

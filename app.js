@@ -78,20 +78,44 @@ if(C.googleReviewUrl){
   });
 }
 
-// v0.2.7 — portfolio lightbox
+// v0.2.8 — portfolio lightbox con navigazione e swipe
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCount = document.getElementById("lightboxCount");
+const portfolioShots = [...document.querySelectorAll("[data-lightbox]")];
+let lightboxIndex = 0;
+let touchStartX = null;
+
+function showLightbox(index){
+  if(!lightbox || !lightboxImage || !portfolioShots.length) return;
+  lightboxIndex = (index + portfolioShots.length) % portfolioShots.length;
+  lightboxImage.src = portfolioShots[lightboxIndex].dataset.lightbox;
+  lightboxCount.textContent = `${lightboxIndex + 1} / ${portfolioShots.length}`;
+  lightbox.classList.remove("hidden");
+  document.body.classList.add("lightbox-open");
+}
 function closeLightbox(){
   if(!lightbox) return;
   lightbox.classList.add("hidden");
   lightboxImage.removeAttribute("src");
   document.body.classList.remove("lightbox-open");
 }
-document.querySelectorAll("[data-lightbox]").forEach(btn=>btn.addEventListener("click",()=>{
-  lightboxImage.src = btn.dataset.lightbox;
-  lightbox.classList.remove("hidden");
-  document.body.classList.add("lightbox-open");
-}));
+portfolioShots.forEach((btn,index)=>btn.addEventListener("click",()=>showLightbox(index)));
 document.querySelector(".lightbox-close")?.addEventListener("click",closeLightbox);
+document.querySelector(".lightbox-prev")?.addEventListener("click",e=>{e.stopPropagation();showLightbox(lightboxIndex-1);});
+document.querySelector(".lightbox-next")?.addEventListener("click",e=>{e.stopPropagation();showLightbox(lightboxIndex+1);});
 lightbox?.addEventListener("click",e=>{ if(e.target===lightbox) closeLightbox(); });
-document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeLightbox(); });
+lightbox?.addEventListener("touchstart",e=>{touchStartX=e.changedTouches[0].clientX;},{passive:true});
+lightbox?.addEventListener("touchend",e=>{
+  if(touchStartX===null) return;
+  const dx=e.changedTouches[0].clientX-touchStartX;
+  touchStartX=null;
+  if(Math.abs(dx)<45) return;
+  showLightbox(lightboxIndex+(dx<0?1:-1));
+},{passive:true});
+document.addEventListener("keydown",e=>{
+  if(lightbox?.classList.contains("hidden")) return;
+  if(e.key==="Escape") closeLightbox();
+  if(e.key==="ArrowLeft") showLightbox(lightboxIndex-1);
+  if(e.key==="ArrowRight") showLightbox(lightboxIndex+1);
+});
