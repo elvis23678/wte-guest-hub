@@ -95,32 +95,67 @@
         <button class="back" aria-label="Indietro">←</button>
         <div><span class="eyebrow">TATTOO REQUEST</span><h2>Raccontami la tua idea</h2></div>
       </div>
-      <p class="lead">Più dettagli mi dai, più sarà semplice capire fattibilità, stile e fascia di prezzo.</p>
-      <form id="projectForm" class="premium-form">
-        <div class="field"><label>Nome e cognome</label><input required name="name" autocomplete="name"></div>
-        <div class="field"><label>Telefono / WhatsApp</label><input required name="phone" inputmode="tel" autocomplete="tel"></div>
-        <div class="field"><label>Email <span>facoltativa</span></label><input name="email" inputmode="email" autocomplete="email"></div>
-        <div class="split">
-          <div class="field"><label>Zona del corpo</label><input required name="body"></div>
-          <div class="field"><label>Dimensione</label><input name="size" placeholder="es. 15 × 10 cm"></div>
-        </div>
-        <div class="field"><label>Descrivi la tua idea</label><textarea required name="idea" rows="5" placeholder="Raccontami soggetto, stile, elementi importanti..."></textarea></div>
-        <div class="field file-field">
-          <label>Reference / immagini</label>
-          <input name="refs" id="refs" type="file" accept="image/*" multiple>
-          <div class="file-note">Puoi selezionare le immagini dal telefono. Nella fase backend verranno caricate davvero insieme alla richiesta.</div>
-        </div>
+
+      <p class="lead">Raccontami cosa hai in mente. Più informazioni mi dai, più posso valutare bene il progetto e prepararti una prima indicazione.</p>
+
+      <form id="projectForm" class="premium-form tattoo-request-form">
         <div class="field">
-          <label>Cosa desideri?</label>
-          <select name="request">
-            <option>Valutazione progetto</option>
-            <option>Preventivo</option>
-            <option>Vorrei parlarne con Elvis</option>
-          </select>
+          <label>La tua idea</label>
+          <textarea required name="idea" rows="5" placeholder="Descrivi soggetto, stile, elementi importanti, eventuali scritte..."></textarea>
         </div>
-        <button class="cta gold" type="submit">CONTINUA SU WHATSAPP</button>
+
+        <div class="split">
+          <div class="field">
+            <label>Zona del corpo</label>
+            <input required name="body" placeholder="es. avambraccio">
+          </div>
+          <div class="field">
+            <label>Dimensione indicativa</label>
+            <input required name="size" placeholder="es. 15 × 10 cm">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Come lo immagini?</label>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="styleColor" value="Bianco e nero" required><span>BIANCO E NERO</span></label>
+            <label class="choice"><input type="radio" name="styleColor" value="Colore"><span>COLORE</span></label>
+            <label class="choice"><input type="radio" name="styleColor" value="Da valutare con Elvis"><span>DA VALUTARE</span></label>
+          </div>
+        </div>
+
+        <div class="field file-field">
+          <label>Reference <span>fino a 3 immagini</span></label>
+          <input name="refs" id="refs" type="file" accept="image/*" multiple>
+          <div class="file-note" id="fileNote">Puoi scegliere foto, disegni o immagini di riferimento dal telefono.</div>
+        </div>
+
+        <div class="field">
+          <label>Budget indicativo <span>facoltativo</span></label>
+          <input name="budget" inputmode="numeric" placeholder="es. 300 €">
+        </div>
+
+        <div class="request-divider"><span>I TUOI DATI</span></div>
+
+        <div class="field">
+          <label>Nome e cognome</label>
+          <input required name="name" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label>Telefono / WhatsApp</label>
+          <input required name="phone" inputmode="tel" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label>Email <span>facoltativa</span></label>
+          <input name="email" inputmode="email" autocomplete="email">
+        </div>
+
+        <button class="cta gold" type="submit">INVIA LA MIA IDEA</button>
       </form>
-      <p class="legal-note">Questa versione prepara il messaggio WhatsApp. Il salvataggio automatico di richieste e immagini verrà aggiunto con il backend separato del Guest Hub.</p>
+
+      <p class="legal-note">Le immagini selezionate restano sul tuo telefono in questa versione. Dopo l'apertura di WhatsApp potrai allegarle direttamente alla conversazione.</p>
     </section>
 
     <section class="panel hidden" id="gift">

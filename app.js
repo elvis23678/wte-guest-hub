@@ -26,20 +26,30 @@ document.querySelectorAll(".back").forEach(b=>b.addEventListener("click",()=>{
 $("#projectForm").addEventListener("submit", e=>{
   e.preventDefault();
   const fd = new FormData(e.currentTarget);
+  const refs = document.getElementById("refs");
+  if(refs && refs.files.length > 3){
+    alert("Puoi selezionare al massimo 3 immagini di riferimento.");
+    return;
+  }
   const text = [
     `Ciao Elvis, arrivo dal Guest Hub di ${C.event.couple} (${C.event.dateDisplay}).`,
     ``,
+    `TATTOO REQUEST`,
     `Nome: ${fd.get("name")}`,
-    `Telefono: ${fd.get("phone")}`,
+    `WhatsApp: ${fd.get("phone")}`,
     `Email: ${fd.get("email") || "-"}`,
-    `Zona: ${fd.get("body")}`,
-    `Dimensione: ${fd.get("size") || "-"}`,
-    `Richiesta: ${fd.get("request")}`,
     ``,
     `Idea: ${fd.get("idea")}`,
+    `Zona: ${fd.get("body")}`,
+    `Dimensione: ${fd.get("size")}`,
+    `BN / Colore: ${fd.get("styleColor")}`,
+    `Budget indicativo: ${fd.get("budget") || "non indicato"}`,
     ``,
-    `Ho anche delle reference da inviarti.`
-  ].join("\n");
+    refs && refs.files.length
+      ? `Ho ${refs.files.length} reference da allegarti qui su WhatsApp.`
+      : `Non ho selezionato reference.`
+  ].join("
+");
   window.location.href = `https://wa.me/${C.artist.whatsapp}?text=${encodeURIComponent(text)}`;
 });
 
@@ -119,3 +129,17 @@ document.addEventListener("keydown",e=>{
   if(e.key==="ArrowLeft") showLightbox(lightboxIndex-1);
   if(e.key==="ArrowRight") showLightbox(lightboxIndex+1);
 });
+
+const refsInput = document.getElementById("refs");
+if(refsInput){
+  refsInput.addEventListener("change", ()=>{
+    if(refsInput.files.length > 3){
+      alert("Puoi selezionare al massimo 3 immagini.");
+      refsInput.value = "";
+    } else {
+      const n = refsInput.files.length;
+      const note = document.getElementById("fileNote");
+      if(note && n) note.textContent = `${n} ${n===1 ? "immagine selezionata" : "immagini selezionate"}. Le allegherai alla conversazione WhatsApp.`;
+    }
+  });
+}

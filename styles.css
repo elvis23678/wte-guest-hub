@@ -327,3 +327,68 @@ body.lightbox-open{overflow:hidden}
  .lightbox{padding:56px 8px 42px}
  .lightbox-nav{width:38px;height:54px;font-size:40px}
 }
+
+
+/* v0.2.9 — section 02 Tattoo Request only */
+#project .lead{max-width:520px;margin-bottom:28px}
+#project .premium-form{gap:18px}
+#project .field label{margin-bottom:9px}
+#project .field input,
+#project .field textarea,
+#project .field select{
+  min-height:50px;
+  border:1px solid rgba(182,144,67,.38);
+  background:#050505;
+  padding:14px 15px;
+}
+#project .field textarea{min-height:132px}
+#project .choice-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+#project .choice{margin:0;position:relative}
+#project .choice input{position:absolute;opacity:0;pointer-events:none}
+#project .choice span{
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:9px 6px;
+  border:1px solid rgba(182,144,67,.38);
+  color:#a89f91;
+  background:#050505;
+  font-size:8px;
+  line-height:1.25;
+  letter-spacing:.10em;
+  text-align:center;
+}
+#project .choice input:checked + span{
+  color:#070707;
+  border-color:#d8b55e;
+  background:linear-gradient(135deg,#9d7229,#e0bf6a);
+}
+#project .file-field input[type=file]{
+  height:auto;
+  min-height:50px;
+  color:#bdb4a7;
+}
+#project .file-note{margin-top:8px}
+#project .request-divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:8px 0 2px;
+  color:#c89a42;
+  font-size:8px;
+  letter-spacing:.25em;
+}
+#project .request-divider:before,
+#project .request-divider:after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:rgba(182,144,67,.32);
+}
+#project .cta.gold{margin-top:4px;min-height:56px}
+@media(max-width:430px){
+  #project .split{grid-template-columns:1fr}
+  #project .choice-grid{grid-template-columns:1fr 1fr}
+  #project .choice:last-child{grid-column:1/-1}
+}
