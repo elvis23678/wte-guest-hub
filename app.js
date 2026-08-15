@@ -48,8 +48,7 @@ $("#projectForm").addEventListener("submit", e=>{
     refs && refs.files.length
       ? `Ho ${refs.files.length} reference da allegarti qui su WhatsApp.`
       : `Non ho selezionato reference.`
-  ].join("
-");
+  ].join("\n");
   window.location.href = `https://wa.me/${C.artist.whatsapp}?text=${encodeURIComponent(text)}`;
 });
 
