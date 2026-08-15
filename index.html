@@ -3,109 +3,171 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#090909">
-  <title>WTE Guest Hub</title>
+  <meta name="theme-color" content="#070707">
+  <meta name="description" content="Wedding Tattoo Experience Guest Hub">
+  <title>WTE Guest Hub — Umberto & Sofia</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="grain"></div>
   <main class="app">
     <section class="hero">
-      <div class="brand">WEDDING <span>tattoo experience</span></div>
-      <div class="event-kicker">WEDDING GUEST EXPERIENCE</div>
+      <div class="hero-frame"></div>
+      <div class="logo-mark" aria-label="Wedding Tattoo Experience">
+        <div class="logo-top"></div>
+        <div class="logo-word">WEDDING</div>
+        <div class="logo-sub">tattoo experience</div>
+        <div class="logo-by">by</div>
+        <div class="logo-studio">TATTOO <span>beauty saloon</span></div>
+        <div class="rings">∞</div>
+      </div>
+
+      <div class="event-kicker">GUEST EXPERIENCE</div>
       <h1 id="eventNames">Umberto & Sofia</h1>
       <p class="event-date" id="eventDate">5 settembre 2026</p>
-      <p class="hero-copy">Un ricordo può iniziare oggi e restare sulla pelle per sempre.</p>
-      <a class="primary" href="#actions">SCOPRI</a>
+      <div class="ornament">◆</div>
+      <p class="hero-copy">Un ricordo può iniziare oggi<br>e restare sulla pelle per sempre.</p>
+      <a class="cta gold" href="#actions">ENTRA NELL'ESPERIENZA</a>
+      <div class="scrollhint">SCORRI</div>
+    </section>
+
+    <section class="intro">
+      <span class="eyebrow">WEDDING TATTOO EXPERIENCE</span>
+      <h2>Questo spazio è per te.</h2>
+      <p>Scopri i miei lavori, raccontami il tattoo che hai in mente, genera il tuo Wedding Gift o lascia una recensione sull'esperienza.</p>
     </section>
 
     <section class="actions" id="actions">
       <button class="action-card" data-open="portfolio">
         <span class="num">01</span>
-        <span><b>I lavori di Elvis</b><small>Guarda una selezione del portfolio.</small></span>
+        <span class="action-text"><b>I lavori di Elvis</b><small>Portfolio selezionato</small></span>
+        <span class="arrow">↗</span>
       </button>
+
       <button class="action-card" data-open="project">
         <span class="num">02</span>
-        <span><b>Raccontami la tua idea</b><small>Descrivi il progetto e allega le reference.</small></span>
+        <span class="action-text"><b>Raccontami la tua idea</b><small>Progetto, reference e preventivo</small></span>
+        <span class="arrow">↗</span>
       </button>
-      <button class="action-card" data-open="gift">
+
+      <button class="action-card featured" data-open="gift">
         <span class="num">03</span>
-        <span><b>Il tuo Wedding Gift</b><small>Genera il coupon nominativo dell'evento.</small></span>
+        <span class="action-text"><b>Il tuo Wedding Gift</b><small>Coupon nominativo dell'evento</small></span>
+        <span class="arrow">↗</span>
       </button>
+
       <button class="action-card" data-open="review">
         <span class="num">04</span>
-        <span><b>Lascia una recensione</b><small>Condividi la tua esperienza su Google.</small></span>
+        <span class="action-text"><b>Lascia una recensione</b><small>Racconta com'è andata</small></span>
+        <span class="arrow">↗</span>
       </button>
     </section>
 
     <section class="panel hidden" id="portfolio">
-      <div class="panel-head"><button class="back">←</button><h2>I lavori di Elvis B Tattoo</h2></div>
-      <p class="muted">Prima release: qui inseriremo le fotografie reali dei lavori.</p>
-      <div class="gallery">
-        <div class="placeholder">REALISMO BN</div>
-        <div class="placeholder">REALISMO COLORE</div>
-        <div class="placeholder">COVER-UP</div>
-        <div class="placeholder">ALTRI LAVORI</div>
+      <div class="panel-head">
+        <button class="back" aria-label="Indietro">←</button>
+        <div><span class="eyebrow">PORTFOLIO</span><h2>I lavori di Elvis B Tattoo</h2></div>
       </div>
-      <a class="primary" href="#project" data-open="project">HO UN'IDEA PER UN TATTOO</a>
+      <p class="lead">Qui inseriremo una selezione vera dei tuoi lavori migliori. La struttura è già pronta per categorie.</p>
+      <div class="gallery">
+        <article class="work-card"><div class="work-image dark1"></div><div class="work-meta"><b>Realismo BN</b><span>Black & Grey</span></div></article>
+        <article class="work-card"><div class="work-image dark2"></div><div class="work-meta"><b>Realismo Colore</b><span>Color</span></div></article>
+        <article class="work-card"><div class="work-image dark3"></div><div class="work-meta"><b>Cover-up</b><span>Rework</span></div></article>
+        <article class="work-card"><div class="work-image dark4"></div><div class="work-meta"><b>Altri lavori</b><span>Selected</span></div></article>
+      </div>
+      <button class="cta gold" data-open="project">RACCONTAMI IL TUO PROGETTO</button>
     </section>
 
     <section class="panel hidden" id="project">
-      <div class="panel-head"><button class="back">←</button><h2>Raccontami il tuo progetto</h2></div>
-      <form id="projectForm">
-        <label>Nome e cognome<input required name="name"></label>
-        <label>Telefono / WhatsApp<input required name="phone" inputmode="tel"></label>
-        <label>Email facoltativa<input name="email" inputmode="email"></label>
-        <label>Zona del corpo<input required name="body"></label>
-        <label>Dimensione indicativa<input name="size" placeholder="es. 15 × 10 cm"></label>
-        <label>Descrivi la tua idea<textarea required name="idea" rows="5"></textarea></label>
-        <label>Reference / immagini<input name="refs" id="refs" type="file" accept="image/*" multiple></label>
-        <label class="select-label">Cosa desideri?
+      <div class="panel-head">
+        <button class="back" aria-label="Indietro">←</button>
+        <div><span class="eyebrow">TATTOO REQUEST</span><h2>Raccontami la tua idea</h2></div>
+      </div>
+      <p class="lead">Più dettagli mi dai, più sarà semplice capire fattibilità, stile e fascia di prezzo.</p>
+      <form id="projectForm" class="premium-form">
+        <div class="field"><label>Nome e cognome</label><input required name="name" autocomplete="name"></div>
+        <div class="field"><label>Telefono / WhatsApp</label><input required name="phone" inputmode="tel" autocomplete="tel"></div>
+        <div class="field"><label>Email <span>facoltativa</span></label><input name="email" inputmode="email" autocomplete="email"></div>
+        <div class="split">
+          <div class="field"><label>Zona del corpo</label><input required name="body"></div>
+          <div class="field"><label>Dimensione</label><input name="size" placeholder="es. 15 × 10 cm"></div>
+        </div>
+        <div class="field"><label>Descrivi la tua idea</label><textarea required name="idea" rows="5" placeholder="Raccontami soggetto, stile, elementi importanti..."></textarea></div>
+        <div class="field file-field">
+          <label>Reference / immagini</label>
+          <input name="refs" id="refs" type="file" accept="image/*" multiple>
+          <div class="file-note">Puoi selezionare le immagini dal telefono. Nella fase backend verranno caricate davvero insieme alla richiesta.</div>
+        </div>
+        <div class="field">
+          <label>Cosa desideri?</label>
           <select name="request">
             <option>Valutazione progetto</option>
             <option>Preventivo</option>
             <option>Vorrei parlarne con Elvis</option>
           </select>
-        </label>
-        <button class="primary" type="submit">CONTINUA SU WHATSAPP</button>
+        </div>
+        <button class="cta gold" type="submit">CONTINUA SU WHATSAPP</button>
       </form>
-      <p class="tiny">Nella prima release i dati non vengono salvati online: il modulo prepara il messaggio WhatsApp. Il salvataggio nel pannello Guest verrà aggiunto nella fase backend.</p>
+      <p class="legal-note">Questa versione prepara il messaggio WhatsApp. Il salvataggio automatico di richieste e immagini verrà aggiunto con il backend separato del Guest Hub.</p>
     </section>
 
     <section class="panel hidden" id="gift">
-      <div class="panel-head"><button class="back">←</button><h2>Il tuo Wedding Gift</h2></div>
-      <p>Inserisci il tuo nome. Il coupon verrà personalizzato per questo matrimonio.</p>
-      <form id="giftForm">
-        <label>Nome e cognome<input required id="giftName"></label>
-        <button class="primary" type="submit">GENERA IL MIO COUPON</button>
-      </form>
-      <div class="coupon hidden" id="coupon">
-        <div class="coupon-brand">WEDDING TATTOO EXPERIENCE</div>
-        <div class="coupon-small">WEDDING GIFT</div>
-        <div class="coupon-event" id="couponEvent">UMBERTO & SOFIA</div>
-        <div class="coupon-date" id="couponDate">5 SETTEMBRE 2026</div>
-        <div class="coupon-small">RISERVATO A</div>
-        <div class="coupon-name" id="couponName"></div>
-        <div class="coupon-discount" id="couponDiscount">–15%</div>
-        <div class="coupon-text">SUL TUO PROSSIMO TATTOO<br>CON ELVIS B TATTOO</div>
-        <div class="coupon-code" id="couponCode"></div>
-        <div class="coupon-expiry" id="couponExpiry">VALIDO FINO AL 5 MARZO 2027</div>
-        <div class="love">LOVE. MARKED. FOREVER.</div>
+      <div class="panel-head">
+        <button class="back" aria-label="Indietro">←</button>
+        <div><span class="eyebrow">WEDDING GIFT</span><h2>Un regalo riservato agli invitati</h2></div>
       </div>
-      <button class="secondary hidden" id="saveCoupon">SALVA / CONDIVIDI IL COUPON</button>
-      <p class="tiny">Coupon nominativo, non cedibile, utilizzabile una sola volta e non cumulabile con altre promozioni.</p>
+      <p class="lead">Inserisci il tuo nome e genera il coupon personalizzato dell'evento.</p>
+
+      <form id="giftForm" class="premium-form compact">
+        <div class="field"><label>Nome e cognome</label><input required id="giftName" autocomplete="name"></div>
+        <button class="cta gold" type="submit">GENERA IL MIO COUPON</button>
+      </form>
+
+      <div class="coupon hidden" id="coupon">
+        <div class="coupon-inner">
+          <div class="coupon-brand">WEDDING<br><span>tattoo experience</span></div>
+          <div class="coupon-rule"></div>
+          <div class="coupon-small">WEDDING GIFT</div>
+          <div class="coupon-event" id="couponEvent">UMBERTO & SOFIA</div>
+          <div class="coupon-date" id="couponDate">5 SETTEMBRE 2026</div>
+          <div class="coupon-small">RISERVATO A</div>
+          <div class="coupon-name" id="couponName"></div>
+          <div class="coupon-discount" id="couponDiscount">–15%</div>
+          <div class="coupon-text">SUL TUO PROSSIMO TATTOO<br><strong>CON ELVIS B TATTOO</strong></div>
+          <div class="coupon-code" id="couponCode"></div>
+          <div class="coupon-expiry" id="couponExpiry">VALIDO FINO AL 5 MARZO 2027</div>
+          <div class="coupon-rule"></div>
+          <div class="love">LOVE. MARKED. FOREVER.</div>
+        </div>
+      </div>
+
+      <button class="cta outline hidden" id="saveCoupon">SALVA / CONDIVIDI IL COUPON</button>
+      <p class="legal-note">Coupon nominativo, non cedibile, utilizzabile una sola volta e non cumulabile con altre promozioni.</p>
     </section>
 
     <section class="panel hidden" id="review">
-      <div class="panel-head"><button class="back">←</button><h2>Ti è piaciuta l'esperienza?</h2></div>
-      <p>Una recensione aiuta altre persone a conoscere il nostro lavoro.</p>
-      <a id="reviewLink" class="primary" href="#" target="_blank" rel="noopener">LASCIA UNA RECENSIONE SU GOOGLE</a>
-      <p class="tiny">Il link diretto Google verrà inserito appena disponibile. Il Wedding Gift resta indipendente dalla recensione.</p>
+      <div class="panel-head">
+        <button class="back" aria-label="Indietro">←</button>
+        <div><span class="eyebrow">GOOGLE REVIEW</span><h2>Ti è piaciuta l'esperienza?</h2></div>
+      </div>
+      <div class="review-box">
+        <div class="stars">★★★★★</div>
+        <p>La tua recensione aiuta altre persone a conoscere il nostro lavoro e Wedding Tattoo Experience.</p>
+        <a id="reviewLink" class="cta gold" href="#" target="_blank" rel="noopener">LASCIA UNA RECENSIONE SU GOOGLE</a>
+      </div>
+      <p class="legal-note">La recensione è libera e indipendente dal Wedding Gift.</p>
+    </section>
+
+    <section class="closing">
+      <div class="ornament">◆</div>
+      <h3>ONE DAY.<br>ONE MEMORY.<br>ONE MARK.</h3>
+      <div class="love">LOVE. MARKED. FOREVER.</div>
     </section>
 
     <footer>
-      <div>ELVIS B TATTOO</div>
+      <div class="footer-brand">ELVIS B TATTOO</div>
       <div>Tattoo Beauty Saloon</div>
-      <div class="love">LOVE. MARKED. FOREVER.</div>
+      <div class="footer-contact">@tattoo.beautycondove</div>
     </footer>
   </main>
   <script src="config.js"></script>

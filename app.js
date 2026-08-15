@@ -12,14 +12,14 @@ $("#couponExpiry").textContent = "VALIDO FINO AL " + C.coupon.expiryDisplay.toUp
 function openPanel(id){
   panels.forEach(p=>p.classList.add("hidden"));
   const p = document.getElementById(id);
-  if(p){ p.classList.remove("hidden"); p.scrollIntoView({behavior:"smooth",block:"start"}); }
+  if(p){ p.classList.remove("hidden"); setTimeout(()=>p.scrollIntoView({behavior:"smooth",block:"start"}),20); }
 }
 document.querySelectorAll("[data-open]").forEach(el=>el.addEventListener("click",e=>{
   e.preventDefault(); openPanel(el.dataset.open);
 }));
 document.querySelectorAll(".back").forEach(b=>b.addEventListener("click",()=>{
   panels.forEach(p=>p.classList.add("hidden"));
-  $("#actions").scrollIntoView({behavior:"smooth"});
+  $("#actions").scrollIntoView({behavior:"smooth",block:"start"});
 }));
 
 $("#projectForm").addEventListener("submit", e=>{
@@ -56,12 +56,13 @@ $("#giftForm").addEventListener("submit", e=>{
   $("#couponCode").textContent = "CODICE: " + randCode();
   $("#coupon").classList.remove("hidden");
   $("#saveCoupon").classList.remove("hidden");
+  setTimeout(()=>$("#coupon").scrollIntoView({behavior:"smooth",block:"center"}),80);
 });
 $("#saveCoupon").addEventListener("click", async ()=>{
   const shareText = `Wedding Gift ${C.event.couple} — ${C.coupon.discount} sul prossimo tattoo con ${C.artist.name}. ${$("#couponCode").textContent}`;
   if(navigator.share){
     try{ await navigator.share({title:"Wedding Gift",text:shareText}); }catch(e){}
-  } else {
+  } else if(navigator.clipboard) {
     await navigator.clipboard.writeText(shareText);
     alert("Dati coupon copiati.");
   }

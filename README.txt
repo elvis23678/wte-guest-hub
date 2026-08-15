@@ -1,34 +1,41 @@
-WTE GUEST HUB v0.1
-=================
+WTE GUEST HUB v0.2 PREMIUM
+=========================
 
 PROGETTO AUTONOMO
-Questo progetto NON modifica e NON dipende dal sito principale Wedding Tattoo Experience.
-È pensato per essere pubblicato separatamente sul sottodominio:
-guest.weddingtattooexperience.it
+- Repository: wte-guest-hub
+- Deploy separato dal sito Wedding Tattoo Experience
+- Destinazione futura: guest.weddingtattooexperience.it
+- Nessuna dipendenza dal progetto Wedding principale
 
-PRIMA RELEASE
-- Home evento Umberto & Sofia - 5 settembre 2026
-- Portfolio placeholder
-- Richiesta progetto con passaggio WhatsApp
-- Upload immagini predisposto nel form (le immagini non vengono ancora inviate al server)
-- Wedding Gift nominativo
-- Codice coupon univoco lato browser
-- Sezione recensione Google predisposta
-- Mobile-first
+NOVITÀ v0.2
+- Restyling completo mobile-first nero/oro
+- Hero evento premium
+- Navigazione a card
+- Portfolio in card
+- Form progetto ridisegnato
+- Wedding Gift ridisegnato come coupon premium
+- Sezione recensione Google ridisegnata
+- Migliore leggibilità su smartphone
+- Nessuna modifica al comportamento base della v0.1
 
-FILE DA MODIFICARE PER EVENTI FUTURI
-config.js
+CONFIGURAZIONE EVENTO
+Modificare soltanto config.js per:
+- nomi sposi
+- data
+- sconto
+- scadenza coupon
+- prefisso codice
+- WhatsApp
+- link recensione Google
 
-DA FARE NELLA FASE 2
-- Backend separato
-- Salvataggio lead
-- Upload reale delle reference
-- Pannello admin Guest Hub
-- Coupon persistenti e stato utilizzato/non utilizzato
-- PDF/immagine coupon scaricabile
-- Portfolio reale
-- Link diretto Google Reviews
-- QR definitivo del singolo evento
+FASE SUCCESSIVA
+1. Inserimento foto reali portfolio.
+2. Link Google Reviews.
+3. Backend separato per salvataggio lead e upload reference.
+4. Coupon persistente/scaricabile come immagine o PDF.
+5. Pannello admin Guest Hub.
+6. QR definitivo evento.
+7. Collegamento sottodominio guest.weddingtattooexperience.it.
 
-NOTA
-Questa è una base di sviluppo/test, non va collegata al dominio di produzione prima del collaudo.
+IMPORTANTE
+Il sito Wedding Tattoo Experience principale resta congelato e non deve essere modificato.
