@@ -166,3 +166,133 @@ body,.app{background:#000}
   .hero h1{font-size:41px}
   .hero-copy{font-size:16px}
 }
+
+/* v0.2.6 — SECOND SECTION premium mobile
+   HERO v0.2.5 intentionally untouched */
+.intro{
+  border-top:1px solid rgba(190,150,70,.55);
+  padding:46px 28px 24px;
+  background:#000;
+  text-align:center;
+}
+.intro .eyebrow{
+  margin:0 0 14px;
+  color:#d6aa4d;
+  font-size:9px;
+  line-height:1.2;
+  letter-spacing:.30em;
+  text-transform:uppercase;
+}
+.intro h2{
+  margin:0 auto 18px;
+  max-width:340px;
+  color:#f4efe5;
+  font-size:40px;
+  line-height:1.02;
+  font-weight:400;
+}
+.intro p{
+  margin:0 auto;
+  max-width:365px;
+  color:#d8d0c4;
+  font-size:17px;
+  line-height:1.52;
+}
+
+.actions{
+  padding:12px 24px 54px;
+  background:#000;
+}
+.action-card{
+  min-height:108px;
+  padding:24px 4px;
+  grid-template-columns:58px minmax(0,1fr) 22px;
+  gap:14px;
+  border-top:1px solid rgba(182,144,67,.36);
+  background:transparent;
+}
+.action-card:last-child{
+  border-bottom:1px solid rgba(182,144,67,.36);
+}
+.action-card.featured{
+  background:transparent;
+}
+.num{
+  align-self:start;
+  padding-top:1px;
+  color:#c89a42;
+  font-family:Georgia,serif;
+  font-size:25px;
+  line-height:1;
+}
+.action-text{
+  gap:7px;
+}
+.action-text b{
+  color:#f4efe5;
+  font-family:Georgia,serif;
+  font-size:22px;
+  font-weight:400;
+  line-height:1.06;
+}
+.action-text small{
+  color:#9e968b;
+  font-size:9px;
+  line-height:1.45;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+.arrow{
+  align-self:center;
+  color:#c89a42;
+  font-size:17px;
+}
+
+@media(max-width:430px){
+  .intro{
+    padding:42px 26px 22px;
+  }
+  .intro .eyebrow{
+    margin-bottom:13px;
+    font-size:8px;
+    letter-spacing:.29em;
+  }
+  .intro h2{
+    max-width:320px;
+    margin-bottom:17px;
+    font-size:38px;
+    line-height:1.02;
+  }
+  .intro p{
+    max-width:340px;
+    font-size:16px;
+    line-height:1.5;
+  }
+  .actions{
+    padding:10px 24px 48px;
+  }
+  .action-card{
+    min-height:101px;
+    padding:21px 4px;
+    grid-template-columns:56px minmax(0,1fr) 20px;
+    gap:12px;
+  }
+  .num{
+    font-size:24px;
+  }
+  .action-text b{
+    font-size:21px;
+  }
+  .action-text small{
+    font-size:8px;
+    letter-spacing:.09em;
+  }
+}
+
+@media(max-width:380px){
+  .intro h2{font-size:35px}
+  .intro p{font-size:15px}
+  .actions{padding-left:20px;padding-right:20px}
+  .action-card{grid-template-columns:50px minmax(0,1fr) 18px}
+  .action-text b{font-size:20px}
+}
