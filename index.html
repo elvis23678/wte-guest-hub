@@ -63,12 +63,27 @@
         <button class="back" aria-label="Indietro">←</button>
         <div><span class="eyebrow">PORTFOLIO</span><h2>I lavori di Elvis B Tattoo</h2></div>
       </div>
-      <p class="lead">Qui inseriremo una selezione vera dei tuoi lavori migliori. La struttura è già pronta per categorie.</p>
-      <div class="gallery">
-        <article class="work-card"><div class="work-image dark1"></div><div class="work-meta"><b>Realismo BN</b><span>Black & Grey</span></div></article>
-        <article class="work-card"><div class="work-image dark2"></div><div class="work-meta"><b>Realismo Colore</b><span>Color</span></div></article>
-        <article class="work-card"><div class="work-image dark3"></div><div class="work-meta"><b>Cover-up</b><span>Rework</span></div></article>
-        <article class="work-card"><div class="work-image dark4"></div><div class="work-meta"><b>Altri lavori</b><span>Selected</span></div></article>
+      <p class="lead">Una selezione di lavori realizzati da Elvis B Tattoo.</p>
+      <div class="portfolio-gallery" aria-label="Portfolio Elvis B Tattoo">
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/160506.jpg" aria-label="Apri lavoro 1"><img src="portfolio/160506.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 1" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/123380.jpg" aria-label="Apri lavoro 2"><img src="portfolio/123380.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 2" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/157591.jpg" aria-label="Apri lavoro 3"><img src="portfolio/157591.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 3" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/164169.jpg" aria-label="Apri lavoro 4"><img src="portfolio/164169.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 4" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/132006.jpg" aria-label="Apri lavoro 5"><img src="portfolio/132006.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 5" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/132749.jpg" aria-label="Apri lavoro 6"><img src="portfolio/132749.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 6" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/132840.jpg" aria-label="Apri lavoro 7"><img src="portfolio/132840.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 7" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/160102.jpg" aria-label="Apri lavoro 8"><img src="portfolio/160102.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 8" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/111438.jpg" aria-label="Apri lavoro 9"><img src="portfolio/111438.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 9" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/132854.jpg" aria-label="Apri lavoro 10"><img src="portfolio/132854.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 10" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/123387.jpg" aria-label="Apri lavoro 11"><img src="portfolio/123387.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 11" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/160097.jpg" aria-label="Apri lavoro 12"><img src="portfolio/160097.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 12" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/213269.jpg" aria-label="Apri lavoro 13"><img src="portfolio/213269.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 13" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/132744.jpg" aria-label="Apri lavoro 14"><img src="portfolio/132744.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 14" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/213272.jpg" aria-label="Apri lavoro 15"><img src="portfolio/213272.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 15" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/132774.jpg" aria-label="Apri lavoro 16"><img src="portfolio/132774.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 16" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/213258.jpg" aria-label="Apri lavoro 17"><img src="portfolio/213258.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 17" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/160100.jpg" aria-label="Apri lavoro 18"><img src="portfolio/160100.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 18" loading="lazy"></button>
+        <button class="portfolio-shot" type="button" data-lightbox="portfolio/132786.jpg" aria-label="Apri lavoro 19"><img src="portfolio/132786.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 19" loading="lazy"></button>
       </div>
       <button class="cta gold" data-open="project">RACCONTAMI IL TUO PROGETTO</button>
     </section>
@@ -165,6 +180,10 @@
       <div class="footer-contact">@tattoo.beautycondove</div>
     </footer>
   </main>
+  <div class="lightbox hidden" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto portfolio">
+    <button class="lightbox-close" type="button" aria-label="Chiudi">×</button>
+    <img id="lightboxImage" alt="Lavoro di Elvis B Tattoo">
+  </div>
   <script src="config.js"></script>
   <script src="app.js"></script>
 </body>

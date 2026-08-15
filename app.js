@@ -77,3 +77,21 @@ if(C.googleReviewUrl){
     alert("Inseriremo qui il link diretto alla recensione Google.");
   });
 }
+
+// v0.2.7 — portfolio lightbox
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+function closeLightbox(){
+  if(!lightbox) return;
+  lightbox.classList.add("hidden");
+  lightboxImage.removeAttribute("src");
+  document.body.classList.remove("lightbox-open");
+}
+document.querySelectorAll("[data-lightbox]").forEach(btn=>btn.addEventListener("click",()=>{
+  lightboxImage.src = btn.dataset.lightbox;
+  lightbox.classList.remove("hidden");
+  document.body.classList.add("lightbox-open");
+}));
+document.querySelector(".lightbox-close")?.addEventListener("click",closeLightbox);
+lightbox?.addEventListener("click",e=>{ if(e.target===lightbox) closeLightbox(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeLightbox(); });
