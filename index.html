@@ -92,7 +92,7 @@
 
     <section class="panel hidden" id="project">
       <div class="panel-head">
-        <button class="back" aria-label="Indietro">←</button>
+        <button class="back" type="button" aria-label="Indietro">←</button>
         <div><span class="eyebrow">TATTOO REQUEST</span><h2>Raccontami la tua idea</h2></div>
       </div>
 
@@ -137,20 +137,9 @@
 
         <div class="request-divider"><span>I TUOI DATI</span></div>
 
-        <div class="field">
-          <label>Nome e cognome</label>
-          <input required name="name" autocomplete="name">
-        </div>
-
-        <div class="field">
-          <label>Telefono / WhatsApp</label>
-          <input required name="phone" inputmode="tel" autocomplete="tel">
-        </div>
-
-        <div class="field">
-          <label>Email <span>facoltativa</span></label>
-          <input name="email" inputmode="email" autocomplete="email">
-        </div>
+        <div class="field"><label>Nome e cognome</label><input required name="name" autocomplete="name"></div>
+        <div class="field"><label>Telefono / WhatsApp</label><input required name="phone" inputmode="tel" autocomplete="tel"></div>
+        <div class="field"><label>Email <span>facoltativa</span></label><input name="email" inputmode="email" autocomplete="email"></div>
 
         <button class="cta gold" type="submit">INVIA LA MIA IDEA</button>
       </form>
