@@ -365,3 +365,53 @@ body.lightbox-open{overflow:hidden}
 #gift .gift-conditions{margin-top:24px;padding-top:18px;border-top:1px solid rgba(182,144,67,.28)}
 #gift .gift-conditions span{color:#c99b45;font-size:8px;letter-spacing:.24em}
 #gift .gift-conditions p{color:#817b72;font-size:10px;line-height:1.55}
+
+
+/* v0.3.1 — Section 04 Google Review */
+#review .review-intro{font-size:17px;max-width:520px}
+#review .review-card{
+  margin-top:28px;
+  padding:34px 20px 24px;
+  border:1px solid rgba(182,144,67,.48);
+  background:radial-gradient(circle at 50% 5%,rgba(182,144,67,.13),transparent 42%),#050505;
+  text-align:center;
+}
+#review .review-stars{
+  color:#e0bd68;
+  font-size:28px;
+  line-height:1;
+  letter-spacing:.19em;
+  margin-left:.19em;
+}
+#review .review-brand{
+  margin-top:20px;
+  color:#f4efe5;
+  font-family:Georgia,serif;
+  font-size:24px;
+  letter-spacing:.05em;
+}
+#review .review-card p{
+  margin:14px auto 24px;
+  max-width:360px;
+  color:#aaa297;
+  font-family:Georgia,serif;
+  font-size:14px;
+  line-height:1.6;
+}
+#review .review-note{
+  margin-top:26px;
+  padding-top:20px;
+  border-top:1px solid rgba(182,144,67,.28);
+  text-align:center;
+}
+#review .review-note span{
+  color:#c99b45;
+  font-size:8px;
+  letter-spacing:.28em;
+}
+#review .review-note p{
+  margin:8px 0 0;
+  color:#817b72;
+  font-family:Georgia,serif;
+  font-size:13px;
+}

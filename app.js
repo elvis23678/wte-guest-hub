@@ -99,11 +99,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function randCode() {
+  function stableCouponCode(name) {
+    const source = `${(event.couple || "WTE").toUpperCase()}|${(event.dateDisplay || "").toUpperCase()}|${(name || "").trim().toUpperCase()}`;
+    let hash = 2166136261;
+    for (let i = 0; i < source.length; i++) {
+      hash ^= source.charCodeAt(i);
+      hash = Math.imul(hash, 16777619);
+    }
     const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-    let s = "";
-    for (let i = 0; i < 5; i++) s += chars[Math.floor(Math.random() * chars.length)];
-    return `${coupon.prefix || "WTE"}-${s}`;
+    let n = hash >>> 0;
+    let suffix = "";
+    for (let i = 0; i < 5; i++) {
+      suffix += chars[n % chars.length];
+      n = Math.floor(n / chars.length) ^ (n >>> 7);
+    }
+    return `US26-${suffix}`;
   }
 
   const giftForm = q("#giftForm");
@@ -114,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const name = nameField ? nameField.value.trim() : "";
       if (!name) return;
       setText("#couponName", name.toUpperCase());
-      setText("#couponCode", "CODICE: " + randCode());
+      setText("#couponCode", "CODICE: " + stableCouponCode(name));
       q("#coupon")?.classList.remove("hidden");
       q("#saveCoupon")?.classList.remove("hidden");
       setTimeout(() => q("#coupon")?.scrollIntoView({ behavior: "smooth", block: "center" }), 80);
@@ -156,14 +166,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const reviewLink = q("#reviewLink");
   if (reviewLink) {
-    if (C.googleReviewUrl) {
-      reviewLink.href = C.googleReviewUrl;
-    } else {
-      reviewLink.addEventListener("click", function (e) {
-        e.preventDefault();
-        alert("Inseriremo qui il link diretto alla recensione Google.");
-      });
-    }
+    const fallbackReviewUrl = "https://www.google.com/maps/search/?api=1&query=Tattoo%20Beauty%20Saloon%20Condove";
+    reviewLink.href = C.googleReviewUrl || fallbackReviewUrl;
   }
 
   // Portfolio lightbox.

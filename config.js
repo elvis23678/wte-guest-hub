@@ -14,5 +14,5 @@ window.WTE_GUEST_CONFIG = {
     expiryDisplay: "5 marzo 2027",
     prefix: "US26"
   },
-  googleReviewUrl: ""
+  googleReviewUrl: "https://g.page/r/Cf0CrxQCLv9vEBM/review"
 };
