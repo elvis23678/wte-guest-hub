@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded",()=>{ const h=document.querySelector(".hero .cta.gold"); if(h){h.textContent="ENTRA NELL’ESPERIENZA"; h.classList.add("gold");} });
 const C = window.WTE_GUEST_CONFIG;
 const $ = s => document.querySelector(s);
 const panels = [...document.querySelectorAll(".panel")];

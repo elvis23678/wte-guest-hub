@@ -39,3 +39,20 @@ FASE SUCCESSIVA
 
 IMPORTANTE
 Il sito Wedding Tattoo Experience principale resta congelato e non deve essere modificato.
+
+
+PATCH v0.2.2
+- CTA hero forzata in stile oro e testo "ENTRA NELL’ESPERIENZA"
+- Separazione corretta titolo/descrizione nelle 4 card
+- Spaziature smartphone rifinite
+- Wordmark provvisorio ripulito
+- Nessuna modifica al sito Wedding Tattoo Experience principale
+
+NOTA LOGO
+Il logo ufficiale non è incluso in questo pacchetto perché non è stato fornito come file sorgente in questa fase.
+Appena disponibile PNG/SVG originale, sostituiremo il wordmark provvisorio senza ricostruirlo.
+
+
+V0.2.2
+- Inserito il logo originale Wedding Tattoo Experience fornito dal titolare.
+- Il logo è usato come immagine, senza ricostruzione grafica o alterazioni.
