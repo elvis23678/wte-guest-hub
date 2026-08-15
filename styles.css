@@ -126,3 +126,43 @@ body,.app{background:#000}
  .intro{padding-top:43px}
  .intro h2{font-size:38px}
 }
+
+
+/* v0.2.5 — HERO compact: complete first screen on mobile */
+@media(max-width:430px){
+  .hero{
+    min-height:calc(100svh - 86px);
+    padding:18px 24px 24px;
+    justify-content:flex-start;
+  }
+  .logo-mark{
+    width:min(66vw,285px);
+    margin:0 auto 4px;
+  }
+  .hero h1{
+    font-size:45px;
+    line-height:.92;
+    margin:0 0 13px;
+    max-width:330px;
+  }
+  .event-date{font-size:10px;letter-spacing:.27em}
+  .hero .ornament{margin:13px 0}
+  .hero-copy{
+    font-size:17px;
+    line-height:1.38;
+    margin:0 auto 18px;
+    max-width:330px;
+  }
+  .hero .cta.gold{
+    min-height:52px;
+    max-width:340px;
+    padding:14px 16px;
+  }
+  .scrollhint{margin-top:14px;font-size:8px}
+}
+
+@media(max-width:380px){
+  .logo-mark{width:min(62vw,255px)}
+  .hero h1{font-size:41px}
+  .hero-copy{font-size:16px}
+}
