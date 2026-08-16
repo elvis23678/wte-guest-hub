@@ -115,13 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
             : "Nessuna reference allegata."
         ].filter(Boolean);
 
-        alert(
-          "Richiesta salvata correttamente" +
-          (requestId ? ` (${requestId})` : "") +
-          ". Ora si aprirà WhatsApp per avvisare lo studio."
-        );
-
         const number = artist.whatsapp || "";
+        const whatsappUrl = number
+          ? `https://wa.me/${number}?text=${encodeURIComponent(lines.join("\n"))}`
+          : "";
+
         projectForm.reset();
 
         const note = q("#fileNote");
@@ -129,10 +127,12 @@ document.addEventListener("DOMContentLoaded", function () {
           note.textContent = "Puoi scegliere foto, disegni o immagini di riferimento dal telefono.";
         }
 
-        if (number) {
-          const url = `https://wa.me/${number}?text=${encodeURIComponent(lines.join("\n"))}`;
-          window.location.href = url;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = oldLabel || "INVIA LA MIA IDEA";
         }
+
+        showRequestSuccess(requestId, whatsappUrl);
       } catch (err) {
         console.error(err);
         alert(
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
           (err && err.message ? err.message : "")
         );
       } finally {
-        if (submitBtn) {
+        if (submitBtn && submitBtn.disabled) {
           submitBtn.disabled = false;
           submitBtn.textContent = oldLabel || "INVIA LA MIA IDEA";
         }
@@ -162,6 +162,54 @@ document.addEventListener("DOMContentLoaded", function () {
         note.textContent = `${n} ${n === 1 ? "immagine selezionata" : "immagini selezionate"}. Verranno salvate insieme alla richiesta.`;
       }
     });
+  }
+
+  function showRequestSuccess(requestId, whatsappUrl) {
+    let modal = q("#requestSuccessModal");
+
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "requestSuccessModal";
+      modal.className = "request-success-modal hidden";
+      modal.innerHTML = `
+        <div class="request-success-backdrop" data-close-success></div>
+        <div class="request-success-card" role="dialog" aria-modal="true" aria-labelledby="requestSuccessTitle">
+          <div class="request-success-check" aria-hidden="true">✓</div>
+          <div class="request-success-eyebrow">TATTOO REQUEST</div>
+          <h3 id="requestSuccessTitle">Richiesta ricevuta</h3>
+          <p>La tua idea è stata salvata correttamente nell'archivio riservato di Elvis B Tattoo.</p>
+          <div class="request-code-wrap">
+            <span>CODICE RICHIESTA</span>
+            <strong id="requestSuccessCode"></strong>
+          </div>
+          <p class="request-success-note">Ora puoi inviare la notifica allo studio su WhatsApp.</p>
+          <a class="cta gold request-success-wa" id="requestSuccessWa" href="#">CONTINUA SU WHATSAPP</a>
+          <button class="request-success-close" type="button" data-close-success>CHIUDI</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      modal.querySelectorAll("[data-close-success]").forEach(el => {
+        el.addEventListener("click", () => modal.classList.add("hidden"));
+      });
+    }
+
+    const code = modal.querySelector("#requestSuccessCode");
+    const wa = modal.querySelector("#requestSuccessWa");
+
+    if (code) code.textContent = requestId || "SALVATA";
+
+    if (wa) {
+      if (whatsappUrl) {
+        wa.href = whatsappUrl;
+        wa.classList.remove("hidden");
+      } else {
+        wa.href = "#";
+        wa.classList.add("hidden");
+      }
+    }
+
+    modal.classList.remove("hidden");
   }
 
   function stableCouponCode(name) {

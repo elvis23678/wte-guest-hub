@@ -201,3 +201,165 @@ body,.app{background:#000}
 .staff-area-link:focus{
   color:#8a7145;
 }
+
+
+/* v0.4.3 — FIX Tattoo Request: scelte + conferma premium */
+.tattoo-request-form .choice-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+.tattoo-request-form .choice{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  margin:0;
+  border:1px solid #3a3021;
+  background:#080808;
+  cursor:pointer;
+  overflow:hidden;
+}
+.tattoo-request-form .choice:last-child{
+  grid-column:1 / -1;
+}
+.tattoo-request-form .choice input{
+  position:absolute!important;
+  opacity:0!important;
+  width:1px!important;
+  height:1px!important;
+  pointer-events:none!important;
+}
+.tattoo-request-form .choice span{
+  position:relative;
+  z-index:1;
+  display:flex;
+  width:100%;
+  min-height:48px;
+  align-items:center;
+  justify-content:center;
+  padding:12px 10px;
+  color:#aaa39a;
+  font-size:9px;
+  letter-spacing:.12em;
+  text-align:center;
+  transition:.18s ease;
+}
+.tattoo-request-form .choice input:checked + span{
+  color:#080808;
+  background:linear-gradient(105deg,#b27d20,#f1cf73 52%,#b27d20);
+  font-weight:800;
+}
+.tattoo-request-form .choice:focus-within{
+  border-color:var(--gold2);
+}
+
+.request-success-modal{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+}
+.request-success-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.86);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+.request-success-card{
+  position:relative;
+  z-index:1;
+  width:min(100%,430px);
+  padding:30px 22px 22px;
+  border:1px solid rgba(214,170,77,.55);
+  background:
+    radial-gradient(circle at 50% 0%,rgba(190,150,70,.13),transparent 38%),
+    #080808;
+  box-shadow:0 24px 80px rgba(0,0,0,.72);
+  text-align:center;
+}
+.request-success-card:before{
+  content:"";
+  position:absolute;
+  inset:7px;
+  border:1px solid rgba(182,144,67,.18);
+  pointer-events:none;
+}
+.request-success-check{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:48px;
+  height:48px;
+  margin:0 auto 18px;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  color:var(--gold2);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:25px;
+}
+.request-success-eyebrow{
+  color:var(--gold);
+  font-size:8px;
+  letter-spacing:.30em;
+}
+.request-success-card h3{
+  margin:8px 0 13px;
+  color:var(--ivory);
+  font-size:30px;
+  line-height:1.02;
+}
+.request-success-card p{
+  max-width:330px;
+  margin:0 auto;
+  color:#bcb4a9;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:15px;
+  line-height:1.5;
+}
+.request-code-wrap{
+  margin:22px 0 17px;
+  padding:15px 12px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.request-code-wrap span{
+  display:block;
+  margin-bottom:7px;
+  color:#827b70;
+  font-size:7px;
+  letter-spacing:.22em;
+}
+.request-code-wrap strong{
+  color:var(--gold2);
+  font-family:monospace;
+  font-size:15px;
+  font-weight:400;
+  letter-spacing:.05em;
+  word-break:break-all;
+}
+.request-success-note{
+  font-size:13px!important;
+}
+.request-success-wa{
+  position:relative;
+  z-index:2;
+  margin-top:21px;
+}
+.request-success-close{
+  position:relative;
+  z-index:2;
+  margin-top:13px;
+  padding:8px 12px;
+  border:0;
+  background:transparent;
+  color:#736d64;
+  font-size:8px;
+  letter-spacing:.18em;
+  cursor:pointer;
+}
