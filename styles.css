@@ -183,3 +183,21 @@ body,.app{background:#000}
   font-size:8px;
   letter-spacing:.20em;
 }
+
+
+/* v0.4.2 — accesso discreto area staff */
+.staff-area-link{
+  display:inline-block;
+  margin-top:22px;
+  padding:7px 10px;
+  color:#4f4a43;
+  font-size:7px;
+  letter-spacing:.18em;
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:color .2s ease;
+}
+.staff-area-link:hover,
+.staff-area-link:focus{
+  color:#8a7145;
+}
