@@ -77,10 +77,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (!apiBase || !event.slug) return;
     try {
       const key = `wte_visit_${event.slug}`;
-      let token = sessionStorage.getItem(key);
-      if (token) return;
-      token = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`);
-      sessionStorage.setItem(key, token);
+      let token = localStorage.getItem(key);
+      if (!token) {
+        token = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`);
+        localStorage.setItem(key, token);
+      }
       fetch(`${apiBase}/api/events/${encodeURIComponent(event.slug)}/visit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
