@@ -48,38 +48,103 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const projectForm = q("#projectForm");
   if (projectForm) {
-    projectForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const fd = new FormData(projectForm);
-      const refs = q("#refs");
+    const projectLegalNote = projectForm.closest("#project")?.querySelector(".legal-note");
+    if (projectLegalNote) {
+      projectLegalNote.textContent =
+        "I dati e le eventuali immagini di riferimento vengono salvati nell’archivio riservato di Elvis B Tattoo. Dopo il salvataggio si aprirà WhatsApp per inviare anche la notifica allo studio.";
+    }
 
+    projectForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const refs = q("#refs");
       if (refs && refs.files && refs.files.length > 3) {
         alert("Puoi selezionare al massimo 3 immagini di riferimento.");
         return;
       }
 
-      const lines = [
-        `Ciao Elvis, arrivo dal Guest Hub di ${event.couple || ""} (${event.dateDisplay || ""}).`,
-        "",
-        "TATTOO REQUEST",
-        `Nome: ${fd.get("name") || "-"}`,
-        `WhatsApp: ${fd.get("phone") || "-"}`,
-        `Email: ${fd.get("email") || "-"}`,
-        "",
-        `Idea: ${fd.get("idea") || "-"}`,
-        `Zona: ${fd.get("body") || "-"}`,
-        `Dimensione: ${fd.get("size") || "-"}`,
-        `BN / Colore: ${fd.get("styleColor") || "-"}`,
-        `Budget indicativo: ${fd.get("budget") || "non indicato"}`,
-        "",
-        refs && refs.files && refs.files.length
-          ? `Ho ${refs.files.length} reference da allegarti qui su WhatsApp.`
-          : "Non ho selezionato reference."
-      ];
+      const apiBase = String(C.apiBaseUrl || "").replace(/\/+$/, "");
+      if (!apiBase) {
+        alert("Archivio richieste non configurato. Riprova più tardi.");
+        return;
+      }
 
-      const number = artist.whatsapp || "";
-      const url = `https://wa.me/${number}?text=${encodeURIComponent(lines.join("\n"))}`;
-      window.location.href = url;
+      const submitBtn = projectForm.querySelector('button[type="submit"]');
+      const oldLabel = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "INVIO IN CORSO…";
+      }
+
+      try {
+        const fd = new FormData(projectForm);
+        fd.set("event", `${event.couple || ""} — ${event.dateDisplay || ""}`);
+
+        const response = await fetch(`${apiBase}/api/requests`, {
+          method: "POST",
+          body: fd
+        });
+
+        let result = {};
+        try {
+          result = await response.json();
+        } catch (_) {}
+
+        if (!response.ok || !result.ok) {
+          throw new Error(result.error || "Impossibile salvare la richiesta.");
+        }
+
+        const requestId = result.id || "";
+        const lines = [
+          `Ciao Elvis, arrivo dal Guest Hub di ${event.couple || ""} (${event.dateDisplay || ""}).`,
+          "",
+          "TATTOO REQUEST",
+          requestId ? `Codice richiesta: ${requestId}` : "",
+          `Nome: ${fd.get("name") || "-"}`,
+          `WhatsApp: ${fd.get("phone") || "-"}`,
+          `Email: ${fd.get("email") || "-"}`,
+          "",
+          `Idea: ${fd.get("idea") || "-"}`,
+          `Zona: ${fd.get("body") || "-"}`,
+          `Dimensione: ${fd.get("size") || "-"}`,
+          `BN / Colore: ${fd.get("styleColor") || "-"}`,
+          `Budget indicativo: ${fd.get("budget") || "non indicato"}`,
+          "",
+          refs && refs.files && refs.files.length
+            ? `${refs.files.length} ${refs.files.length === 1 ? "reference salvata" : "reference salvate"} nell’archivio Guest Hub.`
+            : "Nessuna reference allegata."
+        ].filter(Boolean);
+
+        alert(
+          "Richiesta salvata correttamente" +
+          (requestId ? ` (${requestId})` : "") +
+          ". Ora si aprirà WhatsApp per avvisare lo studio."
+        );
+
+        const number = artist.whatsapp || "";
+        projectForm.reset();
+
+        const note = q("#fileNote");
+        if (note) {
+          note.textContent = "Puoi scegliere foto, disegni o immagini di riferimento dal telefono.";
+        }
+
+        if (number) {
+          const url = `https://wa.me/${number}?text=${encodeURIComponent(lines.join("\n"))}`;
+          window.location.href = url;
+        }
+      } catch (err) {
+        console.error(err);
+        alert(
+          "La richiesta non è stata salvata. Controlla la connessione e riprova.\n\n" +
+          (err && err.message ? err.message : "")
+        );
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = oldLabel || "INVIA LA MIA IDEA";
+        }
+      }
     });
   }
 
@@ -94,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       const note = q("#fileNote");
       if (note && n) {
-        note.textContent = `${n} ${n === 1 ? "immagine selezionata" : "immagini selezionate"}. Le allegherai alla conversazione WhatsApp.`;
+        note.textContent = `${n} ${n === 1 ? "immagine selezionata" : "immagini selezionate"}. Verranno salvate insieme alla richiesta.`;
       }
     });
   }

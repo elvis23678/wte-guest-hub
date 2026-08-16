@@ -14,5 +14,6 @@ window.WTE_GUEST_CONFIG = {
     expiryDisplay: "5 marzo 2027",
     prefix: "US26"
   },
-  googleReviewUrl: "https://g.page/r/Cf0CrxQCLv9vEBM/review"
+  googleReviewUrl: "https://g.page/r/Cf0CrxQCLv9vEBM/review",
+  apiBaseUrl: "https://wedding-book-ai.onrender.com"
 };
