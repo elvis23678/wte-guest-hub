@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#070707">
   <meta name="description" content="Wedding Tattoo Experience Guest Hub">
-  <title>WTE Guest Hub — Umberto & Sofia</title>
+  <title>WTE Guest Hub</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -64,7 +64,7 @@
         <div><span class="eyebrow">PORTFOLIO</span><h2>I lavori di Elvis B Tattoo</h2></div>
       </div>
       <p class="lead">Una selezione di lavori realizzati da Elvis B Tattoo.</p>
-      <div class="portfolio-gallery" aria-label="Portfolio Elvis B Tattoo">
+      <div class="portfolio-gallery" id="portfolioGallery" aria-label="Portfolio Elvis B Tattoo">
         <button class="portfolio-shot" type="button" data-lightbox="portfolio/160506.jpg" aria-label="Apri lavoro 1"><img src="portfolio/160506.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 1" loading="lazy"></button>
         <button class="portfolio-shot" type="button" data-lightbox="portfolio/123380.jpg" aria-label="Apri lavoro 2"><img src="portfolio/123380.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 2" loading="lazy"></button>
         <button class="portfolio-shot" type="button" data-lightbox="portfolio/157591.jpg" aria-label="Apri lavoro 3"><img src="portfolio/157591.jpg" alt="Tattoo realizzato da Elvis B Tattoo — lavoro 3" loading="lazy"></button>
@@ -149,8 +149,8 @@
 
     <section class="panel hidden" id="gift">
 <div class="panel-head"><button class="back" type="button">←</button><div><span class="eyebrow">WEDDING GIFT</span><h2>Un regalo degli sposi per te</h2></div></div>
-<p class="lead"><strong>Umberto & Sofia</strong> hanno scelto di lasciare ai loro invitati un regalo speciale: uno sconto esclusivo sul tuo prossimo tatuaggio.</p>
-<div class="gift-highlight"><span>IL TUO WEDDING GIFT</span><strong>–20%</strong><small>SUL TUO PROSSIMO TATTOO</small></div>
+<p class="lead" id="giftLead"><strong id="giftCouple">Umberto & Sofia</strong> hanno scelto di lasciare ai loro invitati un regalo speciale: uno sconto esclusivo sul tuo prossimo tatuaggio.</p>
+<div class="gift-highlight"><span>IL TUO WEDDING GIFT</span><strong id="giftDiscount">–20%</strong><small>SUL TUO PROSSIMO TATTOO</small></div>
 <p class="gift-instruction">Inserisci nome e cognome. Genera il tuo Wedding Gift personale, salvalo sul telefono e presentalo direttamente in studio.</p>
 <form id="giftForm" class="premium-form compact"><div class="field"><label>Nome e cognome</label><input required id="giftName" autocomplete="name"></div><button class="cta gold" type="submit">GENERA IL MIO WEDDING GIFT</button></form>
 <div class="coupon hidden" id="coupon"><div class="coupon-inner">
@@ -162,7 +162,7 @@
 <div class="coupon-studio">PRESENTA QUESTO WEDDING GIFT PRESSO<br><strong>TATTOO BEAUTY SALOON · CONDOVE (TO)</strong></div>
 <div class="coupon-rule"></div><div class="love">LOVE. MARKED. FOREVER.</div></div></div>
 <button class="cta outline hidden" id="saveCoupon" type="button">SALVA IL COUPON</button>
-<div class="gift-conditions"><span>CONDIZIONI</span><p>Personale, utilizzabile una sola volta, non cedibile e non cumulabile. Valido fino al 5 marzo 2027. Per usufruire dello sconto è necessario presentare il Wedding Gift in studio.</p></div>
+<div class="gift-conditions"><span>CONDIZIONI</span><p id="giftConditionsText">Personale, utilizzabile una sola volta, non cedibile e non cumulabile. Valido fino al 5 marzo 2027. Per usufruire dello sconto è necessario presentare il Wedding Gift in studio.</p></div>
 </section>
 
     <section class="panel hidden" id="review">
