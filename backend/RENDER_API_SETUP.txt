@@ -1,0 +1,31 @@
+AGGIUNGI QUESTI FILE NELLA ROOT DI wte-guest-hub:
+- package.json
+- server.js
+- .gitignore
+
+RENDER — wte-guest-api
+Language: Node
+Branch: main
+Region: Frankfurt (EU Central)
+Root Directory: lascia vuoto
+Build Command: npm install
+Start Command: npm start
+Instance: piano a pagamento compatibile con Persistent Disk
+
+ENV:
+DATA_DIR=/var/data
+FRONTEND_ORIGIN=https://wte-guest-hub.onrender.com
+ADMIN_USER=elvis
+ADMIN_PASSWORD=<scegli password robusta>
+
+PERSISTENT DISK:
+Mount Path: /var/data
+Dimensione: minimo disponibile
+
+TEST:
+https://<url-api>/health
+https://<url-api>/admin
+
+IMPORTANTE:
+questi file non sostituiscono index.html/app.js/config.js/styles.css/portfolio.
+Il sito statico resta online.
