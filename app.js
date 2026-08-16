@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   initReferences();
   initGift();
   initReview();
+  initShare();
   initLightbox();
 
   function hydrateEvent() {
@@ -287,6 +288,72 @@ document.addEventListener("DOMContentLoaded", async function () {
     const reviewLink = q("#reviewLink");
     if (!reviewLink) return;
     reviewLink.href = C.googleReviewUrl || "https://www.google.com/maps/search/?api=1&query=Tattoo%20Beauty%20Saloon%20Condove";
+  }
+
+  function initShare() {
+    const shareBtn = q("#shareHub");
+    const copyBtn = q("#copyHubLink");
+    const feedback = q("#shareFeedback");
+    if (!shareBtn && !copyBtn) return;
+
+    const publicUrl = () => {
+      const url = new URL(location.origin + location.pathname);
+      if (event.slug) url.searchParams.set("event", event.slug);
+      return url.toString();
+    };
+
+    const showFeedback = (text) => {
+      if (!feedback) return;
+      feedback.textContent = text;
+      feedback.classList.remove("hidden");
+      clearTimeout(showFeedback.timer);
+      showFeedback.timer = setTimeout(() => feedback.classList.add("hidden"), 2200);
+    };
+
+    const copyLink = async () => {
+      const url = publicUrl();
+      try {
+        await navigator.clipboard.writeText(url);
+        showFeedback("LINK COPIATO ✓");
+      } catch (_) {
+        const temp = document.createElement("textarea");
+        temp.value = url;
+        temp.setAttribute("readonly", "");
+        temp.style.position = "fixed";
+        temp.style.opacity = "0";
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand("copy");
+          showFeedback("LINK COPIATO ✓");
+        } catch (_) {
+          window.prompt("Copia questo link:", url);
+        }
+        temp.remove();
+      }
+    };
+
+    shareBtn?.addEventListener("click", async () => {
+      const url = publicUrl();
+      const couple = event.couple || "Wedding Tattoo Experience";
+      const data = {
+        title: `Wedding Tattoo Experience — ${couple}`,
+        text: `Scopri il Wedding Tattoo Experience di ${couple}.`,
+        url
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(data);
+          return;
+        } catch (err) {
+          if (err && err.name === "AbortError") return;
+        }
+      }
+      await copyLink();
+    });
+
+    copyBtn?.addEventListener("click", copyLink);
   }
 
   function initLightbox() {

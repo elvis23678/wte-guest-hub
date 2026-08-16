@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#070707">
   <meta name="description" content="Wedding Tattoo Experience Guest Hub">
   <title>WTE Guest Hub</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=0.5.3">
 </head>
 <body>
   <div class="grain"></div>
@@ -186,6 +186,18 @@
       </div>
     </section>
 
+    <section class="share-experience" aria-labelledby="shareTitle">
+      <div class="share-icon" aria-hidden="true">↗</div>
+      <span class="eyebrow">CONDIVIDI IL RICORDO</span>
+      <h3 id="shareTitle">Condividi l’esperienza</h3>
+      <p>Invia questo Wedding Guest Hub agli altri invitati e porta con te il ricordo di questa giornata.</p>
+      <div class="share-actions">
+        <button class="cta gold" id="shareHub" type="button">CONDIVIDI</button>
+        <button class="cta outline" id="copyHubLink" type="button">COPIA LINK</button>
+      </div>
+      <div class="share-feedback hidden" id="shareFeedback" role="status" aria-live="polite">LINK COPIATO ✓</div>
+    </section>
+
     <section class="closing">
       <div class="ornament">◆</div>
       <h3>ONE DAY.<br>ONE MEMORY.<br>ONE MARK.</h3>
@@ -230,6 +242,6 @@
     <div class="lightbox-count" id="lightboxCount" aria-live="polite"></div>
   </div>
   <script src="config.js?v=0.5.2b"></script>
-  <script src="app.js?v=0.5.2b"></script>
+  <script src="app.js?v=0.5.3"></script>
 </body>
 </html>

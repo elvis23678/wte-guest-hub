@@ -366,3 +366,73 @@ body,.app{background:#000}
 
 /* v0.5.0 — portfolio dinamico */
 .portfolio-shot-staff{border-color:rgba(226,194,117,.52)!important;box-shadow:0 0 0 1px rgba(182,144,67,.08) inset}
+
+
+/* v0.5.3 — Condividi il Guest Hub */
+.share-experience{
+  margin:0;
+  padding:58px 24px 60px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(190,150,70,.10),transparent 34%),
+    #000;
+  border-top:1px solid rgba(190,150,70,.30);
+  border-bottom:1px solid rgba(190,150,70,.30);
+}
+.share-icon{
+  display:flex;
+  width:46px;
+  height:46px;
+  margin:0 auto 17px;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(226,194,117,.55);
+  border-radius:50%;
+  color:var(--gold2);
+  font-size:21px;
+}
+.share-experience h3{
+  margin:10px auto 14px;
+  max-width:370px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:34px;
+  line-height:1.08;
+  font-weight:400;
+  color:var(--ivory);
+}
+.share-experience p{
+  max-width:410px;
+  margin:0 auto 26px;
+  color:#bdb5a9;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:16px;
+  line-height:1.55;
+}
+.share-actions{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:10px;
+  width:min(100%,430px);
+  margin:0 auto;
+}
+.share-actions .cta{
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.share-feedback{
+  width:max-content;
+  max-width:100%;
+  margin:17px auto 0;
+  padding:8px 13px;
+  border:1px solid rgba(190,150,70,.38);
+  color:var(--gold2);
+  font-size:9px;
+  letter-spacing:.16em;
+}
+@media(max-width:430px){
+  .share-experience{padding:50px 22px 54px}
+  .share-experience h3{font-size:31px}
+  .share-actions{grid-template-columns:1fr}
+}
