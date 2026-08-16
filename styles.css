@@ -436,3 +436,47 @@ body,.app{background:#000}
   .share-experience h3{font-size:31px}
   .share-actions{grid-template-columns:1fr}
 }
+
+
+/* v0.5.4 — PORTFOLIO MOBILE MASONRY FIX */
+.portfolio-gallery{
+  columns:2;
+  column-gap:10px;
+  width:100%;
+  margin:22px 0 28px;
+}
+.portfolio-shot{
+  appearance:none;
+  -webkit-appearance:none;
+  display:inline-block;
+  width:100%;
+  margin:0 0 10px;
+  padding:0;
+  border:1px solid rgba(190,150,70,.34);
+  background:#090909;
+  overflow:hidden;
+  break-inside:avoid;
+  -webkit-column-break-inside:avoid;
+  cursor:pointer;
+  vertical-align:top;
+}
+.portfolio-shot img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  object-fit:contain;
+  background:#080808;
+}
+.portfolio-shot:focus-visible{
+  outline:1px solid var(--gold2);
+  outline-offset:2px;
+}
+@media (max-width:360px){
+  .portfolio-gallery{
+    column-gap:8px;
+  }
+  .portfolio-shot{
+    margin-bottom:8px;
+  }
+}
