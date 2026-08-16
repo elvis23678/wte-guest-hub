@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   async function trackVisit() {
+    const params = new URLSearchParams(location.search);
+    if (params.get("staff") === "1") return;
     if (!apiBase || !event.slug) return;
     try {
       const key = `wte_visit_${event.slug}`;
